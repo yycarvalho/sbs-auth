@@ -23,8 +23,8 @@ class SbsLoginButton extends HTMLElement {
           display: flex;
           align-items: center;
           justify-content: center;
-          background-color: #ffffff;
-          color: #3c4043;
+          background-color: #cf0a11;
+          color: #FFFFFF;
           border: 1px solid #dadce0;
           padding: 0 16px;
           height: 40px;
@@ -37,20 +37,20 @@ class SbsLoginButton extends HTMLElement {
           transition: background-color 0.2s, box-shadow 0.2s;
         }
         .sbs-btn:hover {
-          background-color: #f8f9fa;
+          background-color: #a3080e;
           border-color: #d2e3fc;
           box-shadow: 0 1px 3px rgba(0,0,0,0.1);
         }
         .sbs-icon {
-          width: 18px;
-          height: 18px;
+          width: 25px;
+          height: 22px;
           margin-right: 10px;
         }
       </style>
       
       <button class="sbs-btn">
-        <img src="http://localhost:8080/icon.ico" class="sbs-icon" alt="SBS">
-        <span>Entrar com SBS Connect</span>
+        <img src="https://github.com/yycarvalho/sbs-auth/releases/download/sbs-auth-component/icone.png" class="sbs-icon" alt="SBS">
+        <span>Entrar com SBS Auth</span>
       </button>
     `;
   }
