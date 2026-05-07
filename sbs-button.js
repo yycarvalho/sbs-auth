@@ -65,12 +65,14 @@ class SbsLoginButton extends HTMLElement {
       const left = (window.screen.width / 2) - (width / 2);
       const top = (window.screen.height / 2) - (height / 2);
 
+	  const state = generateRandomString(32);
+      sessionStorage.setItem('oauth_state', state);
       const params = new URLSearchParams({
         response_type: 'code',
         client_id: this.clientId,
         scope: this.scope,
         redirect_uri: this.redirectUri,
-        state: Math.random().toString(36).substring(7)
+        state: state
       });
 
       window.open(
@@ -79,6 +81,17 @@ class SbsLoginButton extends HTMLElement {
         `width=${width},height=${height},top=${top},left=${left},scrollbars=yes`
       );
     });
+	
+	function generateRandomString(length) {
+            const charset = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+            let result = '';
+            const randomValues = new Uint8Array(length);
+            crypto.getRandomValues(randomValues);
+            for (let i = 0; i < length; i++) {
+                result += charset[randomValues[i] % charset.length];
+            }
+            return result;
+        }
 
     // 2. Ouvinte global para capturar o retorno do authorized.html
     window.addEventListener('message', (event) => {
